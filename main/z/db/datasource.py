@@ -5,7 +5,7 @@ import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-from res_init import res_path
+from resources import res_path
 
 # DBSession集合
 DBSessions = dict()
@@ -22,7 +22,7 @@ def __init_datasource():
                   .format(**databases[database]))
         engine = create_engine(db_url)
         # 创建DBSession类型
-        DBSessions[database] = scoped_session(sessionmaker(bind=engine))
+        DBSessions[database] = scoped_session(sessionmaker(autocommit=False, autoflush=True, bind=engine))
 
 
 # init

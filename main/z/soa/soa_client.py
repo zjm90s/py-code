@@ -5,7 +5,7 @@ __author__ = 'zjm'
 import urllib2
 import json
 
-from res_init import res_path
+from __init__ import res_path
 
 
 class SoaClient():

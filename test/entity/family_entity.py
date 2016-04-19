@@ -18,10 +18,10 @@ class DB_Base():
 
 
 class User(Base, DB_Base):
-    # 表的名字:
+    # 表名:
     __tablename__ = 'family_agent'
 
-    # 表的结构:
+    # 表结构:
     id = Column(String(20), primary_key=True)
     name = Column(String(20))
 
