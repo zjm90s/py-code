@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'zjm'
 
-from main.z.db.datasource import DBSessions
+from py.z.db.datasource import DBSessions
 from entity.family_entity import *
 
 

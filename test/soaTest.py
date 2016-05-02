@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'zjm'
 
-from main.z.soa.soa_client import SoaClient
+from py.z.soa.soa_client import SoaClient
 
 
 # run
