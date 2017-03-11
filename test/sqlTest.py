@@ -2,7 +2,7 @@
 __author__ = 'zjm'
 
 from py.z.db.datasource import DBSessions
-from entity.family_entity import *
+from entity.my_entity import *
 
 
 # run

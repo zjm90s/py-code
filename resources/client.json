@@ -1,8 +1,8 @@
 [
   {
-    "provider":"local.elenet.me:8282",
+    "provider":"localhost:8282",
     "ifaces":[
-      "me.ele.family.agent.service.IAgentService"
+      "xxx.ITestService"
     ]
   }
 ]

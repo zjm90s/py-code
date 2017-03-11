@@ -1,8 +1,8 @@
 {
-  "db_family": {
+  "db_test": {
     "host": "localhost",
     "port": 3306,
-    "database": "family",
+    "database": "db_test",
     "user": "zzz",
     "passwd": "zzz"
   }

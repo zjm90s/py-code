@@ -14,12 +14,12 @@ class DB_Base():
     '''
 
     # 数据库名称，对应resources/database.json中db_xxx
-    DB_NAME = "db_family"
+    DB_NAME = "db_test"
 
 
 class User(Base, DB_Base):
     # 表名:
-    __tablename__ = 'family_agent'
+    __tablename__ = 'table'
 
     # 表结构:
     id = Column(String(20), primary_key=True)

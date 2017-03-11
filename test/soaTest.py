@@ -5,7 +5,7 @@ from py.z.soa.soa_client import SoaClient
 
 
 # run
-method = "me.ele.family.agent.service.IAgentService#getUserCity"
+method = "xxx.IAgentService#getUserCity"
 parms = {"userId": 1}
 result = SoaClient.request(method, parms)
 if result:
