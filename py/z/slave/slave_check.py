@@ -1,13 +1,21 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 __author__ = 'jianming.zhou'
 
-import pytorndb
+import torndb
 
+
+db_name="my_db"
+m_host="localhost:3306"
+m_user="zjm"
+m_password="654321"
+s_host="localhost:3306"
+s_user="zjm"
+s_password="654321"
 
 print "\033[1;32m-----------------------------------------------------------------------------\033[0m"
-db_name = "my_db"
-m_db = pytorndb.Connection("localhost:3306", db_name, user="zjm", password="654321")
-s_db = pytorndb.Connection("localhost:3306", db_name, user="zjm", password="654321")
+m_db = torndb.Connection(m_host, db_name, user=m_user, password=m_password)
+s_db = torndb.Connection(s_host, db_name, s_user, password=s_password)
 m_tbcount = m_db.get("select count(*) as count from information_schema.tables where table_schema = '%s'" % (db_name)).get("count")
 s_tbcount = s_db.get("select count(*) as count from information_schema.tables where table_schema = '%s'" % (db_name)).get("count")
 tables = m_db.query("select table_name from information_schema.tables where table_schema = '%s'" % (db_name))
@@ -22,11 +30,11 @@ for tb in tables:
         total_data_count += m_count
         tblist.append((table, m_count, s_count))
     except BaseException:
-        count = s_db.get("select count(*) as count from information_schema.tables where table_schema = '%s'" % (db_name)).get("count")
+        count = s_db.get("select count(*) as count from information_schema.tables where table_schema = '%s' and table_name = '%s'" % (db_name, table)).get("count")
         if count == 0:
-            print "\033[1;31m [%s] Slave中不存在 \033[0m" % (table)
+            print u"\033[1;31m [%s] Slave中不存在 \033[0m" % (table)
         else:
-            print "\033[1;31m [%s] 查询异常 \033[0m" % (table)
+            print u"\033[1;31m [%s] 查询异常 \033[0m" % (table)
 
 tblist.sort(key=lambda tb: tb[1], reverse=True)
 for tb in tblist:
