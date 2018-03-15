@@ -12,8 +12,7 @@ class CityBo(object):
 
 
 def read():
-    try:
-        file_read = open("/data/python/myReadFile.json");
+    with open("/data/python/myReadFile.json") as file_read:
         line_list = file_read.readlines()
         city_list = []
         for line in line_list:
@@ -21,19 +20,14 @@ def read():
             city = CityBo(strs[0], strs[1].strip('\n'))
             city_list.append(city)
         return city_list;
-    finally:
-        file_read.close()
 
 
 def write(city_list=[]):
-    try:
-        file_write = open("/data/python/myWriteFile.json", "w")
+    with open("/data/python/myWriteFile.json", "w") as file_read:
         for city in city_list:
             print city.id, city.name
             file_write.write(city.id + ' ' + city.name + '\n')
             # file_write.writelines(city_list_strings)
-    finally:
-        file_write.close()
 
 
 # run
